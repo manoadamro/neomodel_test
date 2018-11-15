@@ -1,4 +1,4 @@
-from neomodel import StructuredNode, StringProperty, RelationshipTo
+from neomodel import StructuredNode, StringProperty, RelationshipTo, db
 
 
 class Location(StructuredNode):
@@ -15,6 +15,6 @@ class UserMixin:
 
 class Person(Identifier, UserMixin, StructuredNode):
     address = RelationshipTo(
-        ".personal_address.PersonalAddress", "HAS_PERSONAL_ADDRESS"
+        "Location", "HAS_PERSONAL_ADDRESS"
     )
 

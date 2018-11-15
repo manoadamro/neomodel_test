@@ -1,5 +1,8 @@
 import models
+from neomodel import db
 
+
+db.cypher_query("match(n) detach delete n;")
 
 location = models.Location(name="thing")
 location.save()
