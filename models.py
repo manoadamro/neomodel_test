@@ -5,7 +5,7 @@ class Location(StructuredNode):
     name = StringProperty()
 
 
-class Identifier:
+class IdentifierMixin:
     uuid = StringProperty()
 
 
@@ -13,8 +13,8 @@ class UserMixin:
     name = StringProperty()
 
 
-class Person(Identifier, UserMixin, StructuredNode):
+class Patient(IdentifierMixin, UserMixin, StructuredNode):
     address = RelationshipTo(
-        "Location", "HAS_PERSONAL_ADDRESS"
+        "Location", "HAS_ADDRESS"
     )
 
